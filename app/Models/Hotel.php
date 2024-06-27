@@ -22,13 +22,10 @@ class Hotel extends Model
     {
         return $this->hasMany(Review::class);
     }
-<<<<<<< HEAD
-=======
 
     //We need to have is_recommended column in the hotel table
     public function scopeRecommended($query)
     {
         return $query->where('is_recommended', true);
     }
->>>>>>> ce343f9 (Temp changes)
 }
