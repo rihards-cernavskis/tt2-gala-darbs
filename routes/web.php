@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\BookingController;
+
 
 
 Route::get('/', function () {
@@ -38,5 +40,10 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
 Route::get('/home/{lang?}', [HomeController::class, 'index'])->name('home');
+
+Route::post('/book', [BookingController::class, 'store'])->name('book');
+
+Route::get('/profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
+
 
 require __DIR__.'/auth.php';
