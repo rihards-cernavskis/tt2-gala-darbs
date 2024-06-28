@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
-
+use App\Http\Controllers\ListingController;
 
 
 Route::get('/', function () {
@@ -30,5 +30,7 @@ Route::get('auth/facebook', [SocialiteController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [SocialiteController::class, 'handleFacebookCallback']);
 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+Route::post('/listing/upload', [ListingController::class, 'upload'])->name('listing.upload');
 
 require __DIR__.'/auth.php';

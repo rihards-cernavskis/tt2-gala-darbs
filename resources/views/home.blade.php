@@ -3,25 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>Hotel Booking Website</title>
-</head>
-<body>
-    <header>
-        <h1>Hotel Booking Website</h1>
-    </header>
-    
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>Welcome to Our Hotel Booking Website</h1>
-            <p>Find the best hotels and book your stay</p>
-            <form action="{{ route('search') }}" method="GET">
-                <input type="text" name="location" placeholder="Enter your destination">
-                <input type="date" name="checkin" placeholder="Check-in">
-                <input type="date" name="checkout" placeholder="Check-out">
-=======
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
     <title>Hotel Booking Website</title>
 </head>
@@ -33,7 +14,7 @@
                     <h1>Hotel Booking Website</h1>
                 </div>
                 <div class="header-right">
-                    <button id="login-btn">Log in</button>
+                    <a id="login-btn" href="/login" class="login-button">Log in</a>
                     <select id="language-select">
                         <option value="en">English</option>
                         <option value="lv">Latviešu</option>
@@ -49,28 +30,10 @@
         <div class="search-section">
             <form action="{{ route('search') }}" method="GET">
                 <input type="text" name="keywords" placeholder="Search hotels...">
->>>>>>> ce343f9 (Temp changes)
                 <button type="submit">Search</button>
             </form>
         </div>
         
-<<<<<<< HEAD
-        <!-- Available Hotels -->
-        <main>
-            <h2>Available Hotels</h2>
-            <div class="hotels">
-                @foreach($hotels as $hotel)
-                    <div class="hotel-card">
-                        <img src="{{ $hotel->image_url }}" alt="{{ $hotel->name }}">
-                        <h3>{{ $hotel->name }}</h3>
-                        <p>{{ $hotel->description }}</p>
-                        <button onclick="<?php echo 'bookHotel(' . $hotel->id . ')'; ?>">Book Now</button>
-                    </div>
-                @endforeach
-            </div>
-        </main>
-    </div>
-=======
         <!-- Main Content: Filters, Listings, and Recommendations -->
         <div class="main-content">
             <!-- Filters Section -->
@@ -156,17 +119,12 @@
         <p class="register-text">Aren't a user yet? <a href="/register">Register here</a></p>
     </div>
 </div>
->>>>>>> ce343f9 (Temp changes)
     
     <script>
         function bookHotel(hotelId) {
             alert('Booking hotel with ID: ' + hotelId);
             // Add your booking logic here
         }
-<<<<<<< HEAD
-    </script>
-</body>
-=======
         
         document.querySelectorAll('.book-now-btn').forEach(button => {
             button.addEventListener('click', function() {
@@ -174,35 +132,8 @@
                 bookHotel(hotelId);
             });
         });
-
-        // Get the modal
-        var modal = document.getElementById("loginModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("login-btn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
     </script>
 </body>
 
 
->>>>>>> ce343f9 (Temp changes)
 </html>

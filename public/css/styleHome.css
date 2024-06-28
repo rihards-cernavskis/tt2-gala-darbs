@@ -32,20 +32,21 @@ body {
     gap: 10px;
 }
 
-.header-right button, .header-right select {
+.header-right .login-button, .header-right select {
     padding: 10px;
     border: none;
     border-radius: 5px;
 }
 
-.header-right button {
+.header-right .login-button {
     background-color: #008CBA;
     color: white;
+    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.header-right button:hover {
+.header-right .login-button:hover {
     background-color: #005f73;
 }
 
@@ -59,6 +60,7 @@ body {
 .header-right select:hover {
     background-color: #ddd;
 }
+
 
 /* Container */
 .container {
@@ -275,54 +277,6 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-}
-
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-content label {
-    margin-bottom: 5px;
-}
-
-.modal-content input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.modal-content button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #008CBA;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.modal-content button:hover {
-    background-color: #005f73;
-}
-
-.modal-content .register-text {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.modal-content .register-text a {
-    color: #008CBA;
-    text-decoration: none;
-}
-
-.modal-content .register-text a:hover {
-    text-decoration: underline;
 }
 
 /* Media Queries for Responsive Design */
