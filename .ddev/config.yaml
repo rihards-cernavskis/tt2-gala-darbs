@@ -1,0 +1,20 @@
+name: my-laravel-project
+type: laravel
+docroot: public
+php_version: "8.2"
+webserver_type: nginx-fpm
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+database:
+  type: mariadb
+  version: "10.11"
+use_dns_when_possible: true
+composer_version: "2"
+web_environment: []
+corepack_enable: false
+default_container_timeout: "240"
+
+hooks:
+  post-start:
+    - exec: "npm run dev -- --host"
