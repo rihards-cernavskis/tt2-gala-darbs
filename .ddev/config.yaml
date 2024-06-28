@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 name: my-laravel-project
 type: laravel
 docroot: public
 php_version: "8.2"
+=======
+name: galadarbs
+type: laravel
+docroot: public
+php_version: "8.3"
+>>>>>>> 77806a89e3471b4e4b975229c0b712bd88cec4de
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -15,11 +22,14 @@ web_environment: []
 corepack_enable: false
 default_container_timeout: "240"
 
+<<<<<<< HEAD
 hooks:
   post-start:
     - exec: "npm run dev -- --host"
 
 
+=======
+>>>>>>> 77806a89e3471b4e4b975229c0b712bd88cec4de
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
