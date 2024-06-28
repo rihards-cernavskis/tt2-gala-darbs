@@ -37,6 +37,6 @@ Route::post('/listing/upload', [ListingController::class, 'upload'])->name('list
 Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
-
+Route::get('/home/{lang?}', [HomeController::class, 'index'])->name('home');
 
 require __DIR__.'/auth.php';

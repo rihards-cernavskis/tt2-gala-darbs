@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/styleHome.css') }}">
-    <title>Hotel Booking Website</title>
+    <title>{{ $translations['hotel_booking_website'] }}</title>
 </head>
 <body>
     <div class="header-container-wrapper">
         <header>
             <div class="header-container">
                 <div class="header-left">
-                    <h1>Hotel Booking Website</h1>
+                    <h1>{{ $translations['hotel_booking_website'] }}</h1>
                 </div>
                 <div class="header-right">
-                    <a id="login-btn" href="/login" class="login-button">Log in</a>
-                    <select id="language-select">
-                        <option value="en">English</option>
-                        <option value="lv">Latviešu</option>
-                        <!-- Add more languages as needed -->
+                    <a id="login-btn" href="/login" class="login-button">{{ $translations['login'] }}</a>
+                    <select id="language-select" onchange="location = this.value;">
+                        <option value="{{ route('home', ['lang' => 'en']) }}" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+                        <option value="{{ route('home', ['lang' => 'lv']) }}" {{ app()->getLocale() == 'lv' ? 'selected' : '' }}>Latviešu</option>
                     </select>
                 </div>
             </div>
@@ -29,34 +28,20 @@
         <!-- Search Section -->
         <div class="search-section">
             <form action="{{ route('search') }}" method="GET">
-                <input type="text" name="keywords" placeholder="Search hotels...">
-                <button type="submit">Search</button>
+                <input type="text" name="keywords" placeholder="{{ $translations['search_hotels'] }}">
+                <button type="submit">{{ $translations['search_hotels'] }}</button>
             </form>
         </div>
         
-        <!-- Main Content: Filters, Listings, and Recommendations -->
+        <!-- Main Content: Filters and Listings -->
         <div class="main-content">
             <!-- Filters Section -->
             <aside class="filters">
-                <h2>Filters</h2>
+                <h2>{{ $translations['filters'] }}</h2>
                 <div class="filter-card">
-                    <h3>Price</h3>
-                    <input type="range" min="0" max="1000" step="50">
-                </div>
-                <div class="filter-card">
-                    <h3>Rating</h3>
-                    <input type="range" min="0" max="5" step="0.5">
-                </div>
-                <div class="filter-card">
-                    <h3>Type of Beds</h3>
-                    <label><input type="checkbox" name="bed_type" value="queen"> Queen Sized</label>
-                    <label><input type="checkbox" name="bed_type" value="king"> King Sized</label>
-                    <label><input type="checkbox" name="bed_type" value="twin"> Twin</label>
-                </div>
-                <div class="filter-card">
-                    <h3>Breakfast</h3>
-                    <label><input type="checkbox" name="breakfast" value="included"> Included</label>
-                    <label><input type="checkbox" name="breakfast" value="not_included"> Not Included</label>
+                    <h3>{{ $translations['breakfast'] }}</h3>
+                    <label><input type="checkbox" name="breakfast" value="included"> {{ $translations['included'] }}</label>
+                    <label><input type="checkbox" name="breakfast" value="not_included"> {{ $translations['not_included'] }}</label>
                 </div>
             </aside>
             
@@ -72,35 +57,14 @@
                 <div class="hotel-list">
                     @foreach($hotels as $hotel)
                         <div class="hotel-card">
-                            <img src="{{ asset('storage/'.$hotel->image) }}" alt="{{ $hotel->name }}">
+                            <img src="{{ asset('images/' . $hotel->image) }}" alt="{{ $hotel->name }}">
                             <h3>{{ $hotel->name }}</h3>
                             <p>{{ $hotel->address }}</p>
-                            <p>{{ $hotel->price_per_night }} per night</p>
-                            <button class="book-now-btn" data-hotel-id="{{ $hotel->id }}">Book Now</button>
+                            <button class="book-now-btn" data-hotel-id="{{ $hotel->id }}">{{ $translations['book_now'] }}</button>
                         </div>
                     @endforeach
                 </div>
             </main>
-            
-            <!-- Recommendations Section -->
-            <aside class="recommendations">
-                <h2>Recommended for you</h2>
-                <div class="hotel-list">
-                    @if(isset($recommendedHotels))
-                        @foreach($recommendedHotels as $hotel)
-                            <div class="hotel-card">
-                                <img src="{{ asset('storage/'.$hotel->image) }}" alt="{{ $hotel->name }}">
-                                <h3>{{ $hotel->name }}</h3>
-                                <p>{{ $hotel->address }}</p>
-                                <p>{{ $hotel->price_per_night }} per night</p>
-                                <button class="book-now-btn" data-hotel-id="{{ $hotel->id }}">Book Now</button>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No recommended hotels available.</p>
-                    @endif
-                </div>
-            </aside>
         </div>
     </div>
 
@@ -108,15 +72,15 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Login</h2>
+            <h2>{{ $translations['login'] }}</h2>
             <form>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                <button type="submit">Log in</button>
+                <button type="submit">{{ $translations['login'] }}</button>
             </form>
-            <p class="register-text">Aren't a user yet? <a href="/register">Register here</a></p>
+            <p class="register-text">{{ __('messages.not_a_user') }} <a href="/register">{{ $translations['register'] }}</a></p>
         </div>
     </div>
     
